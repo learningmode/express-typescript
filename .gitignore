@@ -16,7 +16,5 @@ yarn-error.log
 Thumbs.db
 
 # Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+dist/*
+
