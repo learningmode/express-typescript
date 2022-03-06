@@ -4,23 +4,14 @@ const app = express();
 
 app.use(express.json());
 
-//app.use(express.urlencoded({extended:true}));
-
-app.get("/",(req:Request,res:Response)=>{
-    return res.json({
-        success:true,
-        name:'TomDoesTech'
-    });
-});
-
-app.post('/api/data',(req:Request,res:Response)=>{
-    console.log(req.body);
-
-    return  res.sendStatus(200)
-})
-
-app.all('/api/all',(req:Request,res:Response)=>{
-    return res.sendStatus(200);
+app.route('/api/books').get((req:Request,res:Response)=>{
+    return res.send('You make a GET');
+}).post((req:Request, res:Response)=>{
+    return res.send("You made a post request");
+}).put((req:Request, res:Response)=>{
+    return res.send("You made a PUT request");
+}).all((req:Request, res:Response)=>{
+    return res.send("You made an ALL request");
 });
 
 app.listen(3000,()=>{
